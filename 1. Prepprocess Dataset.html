@@ -381,8 +381,8 @@ code {
 <p>If you plan on using a pretrained model, it's important to user the associated pretrained tokenizer.</p>
 </blockquote>
 <h2 id="i-encode">I. Encode</h2>
-<p>The <a href="https://huggingface.co/docs/transformers/v4.44.2/en/model_doc/auto#transformers.AutoTokenizer.from_pretrained"><strong>AutoTokenizer.from_pretrained()</strong></a> method is a pretrained tokenizer which downloads the <span class='parameter'>vocab</span> a model was pretrained.</p>
-<p>To load pretrained tokenizer, invoke <em>from_pretrained()</em> method. After invoking, the tokenizer returns a dictionary with 3 items: <em>input_ids</em>, <em>attention_mark</em>, <em>token_type_ids</em></p>
+<p>The <a href="https://huggingface.co/docs/transformers/v4.44.2/en/model_doc/auto#transformers.AutoTokenizer.from_pretrained"><strong><method>AutoTokenizer.from_pretrained()</method></strong></a> method is a pretrained tokenizer which downloads the <hyperparam>vocab</hyperparam> a model was pretrained.</p>
+<p>To load pretrained tokenizer, invoke <method><em>from_pretrained</em>()</method> method. After invoking, the tokenizer returns a dictionary with 3 items: <result>input_ids</result>, <result>attention_mark</result>, <result>token_type_ids</result>.</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> AutoTokenizer
 tokenizer = AutoTokenizer.from_pretrained(<span class="hljs-string">"google-bert/bert-base-cased"</span>)
 
@@ -393,16 +393,16 @@ print(encoded_input)
 <h4 id="note"><strong><em>Note</em></strong>:</h4>
 <p>In case of multiple sentences, just pass as array.</p>
 </blockquote>
-<p>Retrieve passed input by decoding the <em>input_ids</em>:</p>
-<pre class="hljs"><code><div>tokenizer.decode(encoded_input[<span class="hljs-string">"input_ids]s)
-</span></div></code></pre>
+<p>Retrieve passed input by decoding the <result>input_ids</result>:</p>
+<pre class="hljs"><code><div>tokenizer.decode(encoded_input[<span class="hljs-string">"input_ids"</span>])
+</div></code></pre>
 <h2 id="ii-pad">II. Pad</h2>
-<p>The model input must have a uniform shape, though passed sentences usually are not the same length. So <strong>Padding</strong> is a strategy for ensuring tensors are rectangular by <em>adding special adding token</em> to <strong>shorter sentences</strong>. For example, the special token is <strong>0</strong>.</p>
-<p>To pad, set the <strong>padding</strong> parameter to <em>True</em>:</p>
+<p>The model input must have a uniform shape, though passed sentences usually are not the same length. So <strong>Padding</strong> is a strategy for ensuring tensors are rectangular by <ins><em>adding special adding token</em></ins> to <strong>shorter sentences</strong>. For example, the special token is <strong>0</strong>.</p>
+<p>To pad, set the <hyperparam>padding</hyperparam> parameter to <em>True</em>:</p>
 <pre class="hljs"><code><div>encoded_input = tokenizer(batch_sentences, padding=<span class="hljs-literal">True</span>)
 </div></code></pre>
 <h2 id="iii-truncation">III. Truncation</h2>
-<p>In case of sentences too long for model to handle, you need to truncate the sentences to shorter length, by setting <strong>truncation</strong> parameter to <em>True</em>. The model will truncate sequence to the <span class="highlight bold">maximum length accepted by the model</span>:</p>
+<p>In case of sentences too long for model to handle, you need to truncate the sentences to shorter length, by setting <hyperparam>truncation</hyperparam> parameter to <em>True</em>. The model will truncate sequence to the <span class="highlight">maximum length accepted by the model</span>:</p>
 <pre class="hljs"><code><div>encoded_input = tokenizer(
 	batch_sentences
 	, padding=<span class="hljs-literal">True</span>
@@ -411,9 +411,7 @@ print(encoded_input)
 </div></code></pre>
 <h2 id="iv-build-tensor">IV. Build Tensor</h2>
 <p>Finally, you want the tokenizer to <em>return the actual tensors</em> that get fed to the model.</p>
-<p>Set the <strong>return_tensors</strong> parameter to either <em>pt</em> for PyTorch, or <em>tf</em> for TensorFlow:</p>
-<h1 id="appendix">Appendix</h1>
-<h2 id="a1-tokenizer">A1. Tokenizer</h2>
+<p>Set the <hyperparam>return_tensors</hyperparam> parameter to either <em>pt</em> for PyTorch, or <em>tf</em> for TensorFlow</p>
 
 </body>
 </html>
