@@ -1,0 +1,18 @@
+.hard-highlight {
+	color: red;
+	background-color: yellow;
+}
+
+.highlight {
+	color: red;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.parameter {
+	color: darkorange;
+	font-style: italic;
+	padding: 0em 0.25em;
+}
